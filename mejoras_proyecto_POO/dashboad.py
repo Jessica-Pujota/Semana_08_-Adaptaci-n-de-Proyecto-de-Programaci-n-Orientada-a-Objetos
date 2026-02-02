@@ -13,13 +13,10 @@ from servicios.gestor_de_proyectos import GestorProyectos
 from servicios.gestor_de_tareas import GestorTareas
 from servicios.gestor_de_usuarios import GestorUsuarios
 from utilerias.validadores import validar_cadena_no_vacia, validar_numero_positivo
-
 class Dashboard:
-    """
-    Clase principal del Dashboard que coordina la interfaz de usuario.
+    """Clase principal del Dashboard que coordina la interfaz de usuario.
     Aplica principio de responsabilidad única: solo maneja la interacción con el usuario.
-    """
-    
+    """    
     def __init__(self):
         """Inicializa el dashboard con los gestores de servicios"""
         self.gestor_proyectos = GestorProyectos()
@@ -117,9 +114,7 @@ class Dashboard:
                 "Nombre del proyecto"
             )
             descripcion = input("Descripción (opcional): ")
-            
             proyecto = self.gestor_proyectos.crear_proyecto(nombre, descripcion)
-            
             if self.usuario_actual:
                 self.usuario_actual.agregar_proyecto(proyecto)
             
@@ -128,14 +123,12 @@ class Dashboard:
         
         except ValueError as e:
             self.mostrar_mensaje(f"Error: {e}", 'error')
-        
         self.pausar()
     
     def listar_proyectos(self):
         """Lista todos los proyectos"""
         self.limpiar_pantalla()
         self.mostrar_titulo("LISTA DE PROYECTOS")
-        
         proyectos = self.gestor_proyectos.listar_proyectos()
         
         if not proyectos:
