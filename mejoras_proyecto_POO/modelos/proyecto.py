@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import List
 from modelos.tarea import Tarea, EstadoTarea, Prioridad
 
-class Proyecto:
+class Proyecto:        
     """Clase que representa un proyecto con múltiples tareas"""
     def __init__(self, nombre: str, descripcion: str = ""):
         self._nombre = nombre
